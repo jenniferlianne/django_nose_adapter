@@ -9,7 +9,7 @@ class DjangoNosePlugin(Plugin):
     when running nosetests -p '''
 
     name = 'djangonose'
-    enabled = True
+    enabled = False
 
     @property
     def plugin(self):
@@ -25,6 +25,7 @@ class DjangoNosePlugin(Plugin):
         self._plugin = None
 
     def configure(self, *args, **kw_args):
+        super(DjangoNosePlugin, self).configure(*args, **kw_args)
         self.plugin.configure(*args, **kw_args)
 
     def prepareTest(self, test):
