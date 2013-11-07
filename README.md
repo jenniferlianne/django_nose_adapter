@@ -6,9 +6,9 @@ so you can test django in Eclipse PyUnit.
 
 To install the plugin, type
 
-'''
+```
 easy_install . 
-'''
+```
 
 in the plugin directory.  When you run nosetests -p, you should see djangonose listed.
 
@@ -25,6 +25,6 @@ it works after that.
 Note that you can also use django_nose's REUSE_DB environment setting to speed up your django tests.
 
 Validate installation by running from the command line:
-'''
+```
 DJANGO_SETTINGS_MODULE='settings' PYTHONPATH='yourpath' nosetests yourapp.tests --with-djangonose
-''' 
+``` 
