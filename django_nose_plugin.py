@@ -26,7 +26,8 @@ class DjangoNosePlugin(Plugin):
 
     def configure(self, *args, **kw_args):
         super(DjangoNosePlugin, self).configure(*args, **kw_args)
-        self.plugin.configure(*args, **kw_args)
+        if self.enabled:
+            self.plugin.configure(*args, **kw_args)
 
     def prepareTest(self, test):
         self.plugin.prepareTest(test)
