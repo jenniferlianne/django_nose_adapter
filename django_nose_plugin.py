@@ -1,5 +1,10 @@
 from nose.plugins import Plugin
 
+try:
+    from django import setup as setup_django
+except ImportError:
+    setup_django = lambda: None
+
 
 class DjangoNosePlugin(Plugin):
     ''' Adaptor that allows usage of django_nose package plugin from
@@ -30,6 +35,7 @@ class DjangoNosePlugin(Plugin):
             self.plugin.configure(*args, **kw_args)
 
     def prepareTest(self, test):
+        setup_django()  # no-op for Django < 1.7
         self.plugin.prepareTest(test)
 
     def finalize(self, result):
